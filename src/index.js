@@ -12,7 +12,7 @@ import rootReducer from './reducers/index';
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk)
-);
+); 
 
 ReactDOM.render(
   <React.StrictMode>
