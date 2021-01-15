@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchChats } from '../actions/chats';
-import Chat from '../components/chats/Display';
+import Index from '../components/chats/Index';
+import NewChat from '../components/chats/NewChat';
 
 class Chats extends Component {
 
@@ -14,7 +15,8 @@ class Chats extends Component {
 
     return (
       <div>
-        {this.props.chats ? this.props.chats.chats.map(chat => <Chat key={chat.id} chat={chat} /> ) : null}
+        <NewChat />
+        {this.props.chats ? this.props.chats.chats.map(chat => <Index key={chat.id} chat={chat} /> ) : null}
       </div>
     )
 

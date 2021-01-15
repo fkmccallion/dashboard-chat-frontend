@@ -6,6 +6,11 @@ export default ( state = null, action ) => {
         ...state,
         chats: action.chats
       }
+    case 'NEW_CHAT':
+      return {
+        ...state,
+        chats: action.chats
+      }
     default:
       return state;
   }

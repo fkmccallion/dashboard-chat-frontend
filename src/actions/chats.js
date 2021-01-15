@@ -10,3 +10,25 @@ export function fetchChats() {
   };
 
 }
+
+export const newChat = chat => {
+
+  let configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      'content': chat.content,
+      'user_id': chat.user_id
+    })
+  };
+
+  return (dispatch) => {
+    fetch(CHATS_URL, configObj)
+      .then(response => response.json())
+      .then(chats => dispatch({ type: 'NEW_CHAT', chats }));
+  };
+
+};
