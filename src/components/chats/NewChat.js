@@ -26,7 +26,7 @@ class NewChat extends Component {
     event.preventDefault();
     this.props.newChat(this.state)
     this.setState({
-      comment: "",
+      content: "",
       user_id: 1
     });
   };
