@@ -2,8 +2,8 @@ import React from 'react'
 
 const Chat = chat => {
   return (
-    <div>
-      test
+    <div className="m-5">
+      {chat.chat.content}
     </div>
   )
 

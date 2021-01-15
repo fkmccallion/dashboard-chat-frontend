@@ -1,8 +1,7 @@
-export default (state = { chats: [] }, action) => {
+export default ( state = null, action ) => {
 
   switch (action.type) {
     case 'POPULATE_CHATS':
-      console.log(action)
       return {
         ...state,
         chats: action.chats

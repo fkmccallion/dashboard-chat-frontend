@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchChats } from '../actions/chats';
-import Chat from '../components/Chat';
+import Chat from '../components/chats/Display';
 
 class Chats extends Component {
 
@@ -14,7 +14,7 @@ class Chats extends Component {
 
     return (
       <div>
-        <Chat />
+        {this.props.chats ? this.props.chats.chats.map(chat => <Chat key={chat.id} chat={chat} /> ) : null}
       </div>
     )
 
