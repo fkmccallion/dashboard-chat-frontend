@@ -44,7 +44,6 @@ class NewChat extends Component {
                 name="content"
                 onChange={event => this.handleChange(event)}
                 value={this.state.content}
-                maxLength="255"
                 cols="50"
                 rows="4"
               />

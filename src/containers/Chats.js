@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchChats } from '../actions/chats';
 import Index from '../components/chats/Index';
 import NewChat from '../components/chats/NewChat';
+import Button from 'react-bootstrap/Button';
 
 class Chats extends Component {
 
@@ -11,12 +12,34 @@ class Chats extends Component {
     this.props.fetchChats()
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: 'd-none',
+      label: 'Show'
+    }
+  }
+
+  toggleChatDisplay = event => {
+    this.setState(prevState => ({
+      display: prevState.display ? null : 'd-none',
+      label: prevState.label === 'Show' ? 'Hide' : 'Show'
+    }));
+  };
+
   render() {
 
     return (
       <div>
         <NewChat />
-        {this.props.chats ? this.props.chats.chats.map(chat => <Index key={chat.id} chat={chat} /> ) : null}
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={event => this.toggleChatDisplay(event)}
+        >
+          {this.state.label} Chats
+        </Button>
+        <span className={this.state.display}>{this.props.chats ? this.props.chats.chats.map(chat => <Index key={chat.id} chat={chat} /> ) : null}</span>
       </div>
     )
 
